@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: instmuse
+Version: 0.0.1
+Summary: Physical Instrument Library
+Home-page: https://gitlab.com/cuppajoeman/instmuse
+Author: ccn
+Author-email: ccn@cuppajoeman.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Instmuse
+
+This package is a set of tools designed to work with physical instruments, it uses numuse's notation.
+
+To get started visit the [documentation](https://instmuse.readthedocs.io/en/latest/).
+
+If you're able to find use in this project, then please consider [contributing](https://www.patreon.com/cuppajoeman).
+
+

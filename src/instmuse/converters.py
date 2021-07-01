@@ -1,10 +1,16 @@
-from typing import Tuple, Set, List
+from typing import Dict, List
 from .stringed_instrument import ModularGridNoteCollection
 import re
 
-def convert_modular_grid_shorthand_to_modular_grid_positions(shorthand_text: str) -> Set[Tuple[int, int]]:
+def convert_modular_grid_shorthand_to_modular_grid_positions(shorthand_text: str) -> Dict[int, int]:
     """Takes in a string of the form 'X1 X2 ... XN' and turns it into a list of x y coordinates"""
-    return {(i, int(ele)) for i, ele in enumerate(shorthand_text.split()) if ele != "X"}
+    modular_grid_positions = {}
+    for i, ele in enumerate(shorthand_text.split()):
+        if ele != "X":
+            modular_grid_positions[i] = int(ele)
+
+    return modular_grid_positions
+            
 
 def generate_MGNCs_from_MG_shorthand(mg_shorthand: str) -> List[ModularGridNoteCollection]:
     """An example of mg_shorthand could be
@@ -20,8 +26,4 @@ def generate_MGNCs_from_MG_shorthand(mg_shorthand: str) -> List[ModularGridNoteC
         # slicing to remove the parenthesis
         MGNCs.append(ModularGridNoteCollection(convert_modular_grid_shorthand_to_modular_grid_positions(match[1: -1])))
     return MGNCs
-
-
-
-    
 

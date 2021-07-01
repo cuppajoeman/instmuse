@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/instmuse/__init__.py
+src/instmuse/converters.py
+src/instmuse/instrument_music.py
+src/instmuse/stringed_instrument.py
+src/instmuse.egg-info/PKG-INFO
+src/instmuse.egg-info/SOURCES.txt
+src/instmuse.egg-info/dependency_links.txt
+src/instmuse.egg-info/requires.txt
+src/instmuse.egg-info/top_level.txt

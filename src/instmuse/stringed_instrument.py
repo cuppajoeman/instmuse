@@ -3,7 +3,7 @@ import numuse.tools
 import numuse.constants
 import numuse.notation
 import numuse.musical_system
-from typing import List, Set, Tuple
+from typing import List, Tuple, Dict
 
 
 class Instrument:
@@ -95,7 +95,7 @@ class ModularGridNoteCollection(numuse.notation.NoteCollection):
 
     def __init__(
         self,
-        modular_grid_positions: Set[Tuple[int, int]],
+        modular_grid_positions: Dict[int, int],
         duration: int = 0,
         modular_grid_instrument=ModularGridStringedInstrument(
             24, [5, 5, 5, 4, 5], numuse.notation.Note(4 - 12 * 2)
@@ -103,9 +103,12 @@ class ModularGridNoteCollection(numuse.notation.NoteCollection):
     ):
         self.modular_grid_instrument = modular_grid_instrument
         self.modular_grid_positions = modular_grid_positions
+        self.modular_grid_labels = {}
         temp_notes = set()
-        for string_pos, fret_pos in self.modular_grid_positions:
+        for string_pos, fret_pos in self.modular_grid_positions.items():
+            mg_note = self.modular_grid_instrument.open_string_notes[string_pos] + fret_pos
             temp_notes.add(
-                    self.modular_grid_instrument.open_string_notes[string_pos] + fret_pos
+                    mg_note
             )
+            self.modular_grid_labels[string_pos] = numuse.tools.ranged_modulus_operator(mg_note.note)
         super().__init__(temp_notes, duration, self.modular_grid_instrument.musical_system)
